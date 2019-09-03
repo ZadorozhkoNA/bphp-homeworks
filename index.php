@@ -23,6 +23,11 @@
                     <!-- <li><a href="1.2-strings-and-forms/1.2.3-additional">Задание 1.2.3</a></li> -->
                 </ul>
             </li>
+            <li>Занятие 1.2. Массивы и циклы
+                <ul>
+                    <li><a href="1.3-arrays-and-functions/1-places">Задание 1.3.1 и 1.3.2</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
 </ul>
