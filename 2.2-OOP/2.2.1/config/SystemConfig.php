@@ -1,6 +1,6 @@
 <?php
 
-class Config extends Singleton
+class SystemConfig extends Singleton
 {
-    const DATABASE_PATH = '/files/database/';
+    const DATABASE_PATH = DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR;
 }
