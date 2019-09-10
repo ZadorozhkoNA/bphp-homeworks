@@ -1,4 +1,5 @@
 <?php
+session_start();
     /**
      * Функция получает текущее количество просмотров на видео
      *
@@ -27,12 +28,24 @@
      *
      * @return bool
      */
-    function shouldBeIncremented(): bool
+
+    function shouldBeIncremented() : bool
     {
-        //write your code here
+      if ( $_SESSION === [] ) {
+        $_SESSION['time'] = time();
+        return true;
+      }
+
+      if ( (int)time() - (int)$_SESSION['time'] >= 5 * 60 ) {
+        $_SESSION['time'] = time();
+        return true;
+      }
+      return false;
     }
 
-    //
+if ( shouldBeIncremented() ) {
+  incrementViews( getViews() );
+}
 ?>
 
 <!DOCTYPE html>
