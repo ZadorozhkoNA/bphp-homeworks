@@ -38,7 +38,9 @@ function writeLog( $count, $pause, $number = 1 ) {
 
 if ( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
   $login = array_key_exists( $_POST['login'], $users );
-  if ( $login ) {
+  if ( !$login ) echo $_POST['login'] . ' такого пользователя нет';
+  if ( $login && $users[$_POST['login']] !== $_POST['password'] ) {
+    echo 'Пароль не верный';
     if ( !isset($_SESSION[$_POST['login']]) ) {
       $array = [];
       $array['count1'] = 0;
@@ -49,10 +51,9 @@ if ( isset( $_POST['login'] ) && isset( $_POST['password'] ) ) {
     }
     writeLog( 2, 5 );
     writeLog( 3, 60, 2 );
-
-    if ($users[$_POST['login']] === $_POST['password']) {
-      echo 'Авторизация прошла успешно';
     }
+    if ($login && $users[$_POST['login']] === $_POST['password']) {
+      echo 'Авторизация прошла успешно';
   }
 }
 
